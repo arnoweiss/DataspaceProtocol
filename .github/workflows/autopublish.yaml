@@ -20,11 +20,10 @@ jobs:
         run: |
           chmod +x ./scripts/replace.sh
           ./scripts/replace.sh
-      - uses: w3c/spec-prod@v2
-#      - name: Run Respec
-#        run:
-#          sudo npx puppeteer browsers install chrome
-#          npx respec --src index.html --out index.html.build.html -t 60 --disable-sandbox --verbose
+      - name: Run Respec
+        run:
+          sudo npx puppeteer browsers install chrome
+          npx respec --src index.html --out index.html.build.html -t 60 --disable-sandbox --verbose
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
