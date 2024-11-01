@@ -121,7 +121,7 @@ Authorization: ...
 ##### Response
 
 The [=Provider=] must return an HTTP 201 (Created) response with a body containing
-the [Transfer Process](#transfer-process):
+the [Transfer Process](#ack-transfer-process):
 
 ```json
 {
