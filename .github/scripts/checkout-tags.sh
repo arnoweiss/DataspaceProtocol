@@ -14,25 +14,27 @@ do
   mkdir $tag
   cd $tag
   git clone https://github.com/eclipse-dataspace-protocol-base/DataspaceProtocol.git --depth 1 --branch ${tag} --quiet
-  pwd
   mv ./DataspaceProtocol/* .
   cd ..
 done
-pwd
 for dir in */; do
   if [ -f "$dir/index.html" ]; then
-      mkdir ./figures
+      pwd
+      cd $dir
+      pwd
+   mkdir ./figures
       mkdir -p ./message/schema
       mkdir -p ./message/example
       mkdir -p ./message/table
-      cp -r "./artifacts/src/main/resources/**/*-schema.json" ./message/schema
+      cp -r ./artifacts/src/main/resources/**/*-schema.json ./message/schema
       echo "successfully copied message schemas"
-      cp -r "./artifacts/src/main/resources/**/example/*.json" ./message/example
+      cp -r ./artifacts/src/main/resources/**/example/*.json ./message/example
       echo "successfully copied message examples"
-      cp -r "./specifications"/**/"figures"/*".png" ./figures/
+      cp -r ./specifications/**/figures/*.png ./figures/
       echo "successfully copied figures"
-      cp -r "./artifacts/build/generated/tables"/*".html" ./message/table
+      cp -r ./artifacts/build/generated/tables/*.html ./message/table
       echo "successfully copied message property tables"
+      cd ..
   else
     echo "index does not exist. No copy operations"
   fi
