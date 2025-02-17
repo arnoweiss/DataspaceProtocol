@@ -22,8 +22,8 @@ jobs:
           cd ..
       - name: Copy files for correct web access
         run: |
-          chmod +x ./.github/workflows/script.sh
-          ./.github/workflows/script.sh
+          chmod +x ./.github/scripts/checkout-tags.sh.sh
+          ./.github/scripts/checkout-tags.sh.sh
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
