@@ -25,9 +25,9 @@ for dir in */; do
       mkdir -p ./message/schema
       mkdir -p ./message/example
       mkdir -p ./message/table
-      cp -r "./artifacts/src/main/resources"/**/* ./message/schema || true
+      cp -r "./artifacts/src/main/resources/**/*-schema.json" ./message/schema
       echo "successfully copied message schemas"
-      cp -r "./artifacts/src/main/resources"/**/"example"/* ./message/example
+      cp -r "./artifacts/src/main/resources/**/example/*.json" ./message/example
       echo "successfully copied message examples"
       cp -r "./specifications"/**/"figures"/*".png" ./figures/
       echo "successfully copied figures"
