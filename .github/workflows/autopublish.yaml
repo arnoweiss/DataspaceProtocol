@@ -24,6 +24,8 @@ jobs:
         run: |
           chmod +x ./.github/scripts/checkout-tags.sh
           ./.github/scripts/checkout-tags.sh
+      - name: Redirect top to head
+        run: cp .github/scripts/index.html .
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
