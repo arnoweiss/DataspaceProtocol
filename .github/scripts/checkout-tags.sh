@@ -7,7 +7,7 @@ tags_string=$(git tag)
 echo got tag string
 echo $tags_string
 tags_array=($tags_string)
-mv * HEAD
+mv $(ls --ignore=HEAD) HEAD/
 for tag in "${tags_array[@]}"
 do
   echo starting with tag $tag
