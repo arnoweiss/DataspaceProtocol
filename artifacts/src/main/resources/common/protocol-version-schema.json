@@ -22,6 +22,12 @@
                             },
                             "path": {
                                 "type": "string"
+                            },
+                            "binding": {
+                                "type": "string"
+                            },
+                            "auth": {
+                                "type": "string"
                             }
                         },
                         "required": ["version", "path"]

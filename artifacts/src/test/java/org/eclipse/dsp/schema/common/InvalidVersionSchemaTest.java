@@ -31,6 +31,8 @@ public class InvalidVersionSchemaTest extends AbstractSchemaTest {
         assertThat(schema.validate(INVALID_EMPTY_VERSIONS, JSON).iterator().next().getType()).isEqualTo(MIN_ITEMS);
         assertThat(schema.validate(INVALID_NO_VERSION, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
         assertThat(schema.validate(INVALID_NO_PATH, JSON).iterator().next().getType()).isEqualTo(REQUIRED);
+        assertThat(schema.validate(INVALID_BINDING_A_NUMBER, JSON).iterator().next().getType()).isEqualTo(TYPE);
+
     }
 
     @BeforeEach
@@ -63,6 +65,19 @@ public class InvalidVersionSchemaTest extends AbstractSchemaTest {
               "protocolVersions": [
                 {
                   "version": "1.0"
+                }
+              ]
+            }
+            """;
+
+    private static final String INVALID_BINDING_A_NUMBER = """
+            {
+              "protocolVersions": [
+                {
+                  "version": "1.0",
+                  "path": "/some/path/v1",
+                  "binding": 10,
+                  "auth": "auth-protocol"
                 }
               ]
             }

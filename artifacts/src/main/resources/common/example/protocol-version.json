@@ -1,8 +1,21 @@
 {
   "protocolVersions": [
     {
-      "version": "1.0",
-      "path": "/some/path/v1"
+      "version": "2024-1",
+      "path": "/some/path/2024-1",
+      "binding": "HTTPS"
+    },
+    {
+      "version": "2025-1",
+      "path": "/some/path/2025-1",
+      "binding": "HTTPS",
+      "auth": "DCP"
+    },
+    {
+      "version": "2025-1",
+      "path": "/different/path/2025-1",
+      "binding": "HTTPS",
+      "auth": "DCP"
     }
   ]
 }
