@@ -39,7 +39,6 @@
         "@context",
         "@type",
         "agreementId",
-        "format",
         "callbackAddress",
         "consumerPid"
       ]

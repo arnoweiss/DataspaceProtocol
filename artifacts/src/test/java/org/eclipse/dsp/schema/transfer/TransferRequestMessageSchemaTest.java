@@ -35,6 +35,8 @@ public class TransferRequestMessageSchemaTest extends AbstractSchemaTest {
     void verifyMinimalRequestSchema() {
         assertThat(schema.validate(MINIMAL_REQUEST, JSON)).isEmpty();
         assertThat(schema.validate(NO_DA_ENDPOINT, JSON)).isEmpty();
+        assertThat(schema.validate(NO_FORMAT, JSON)).isEmpty();
+
     }
 
     @BeforeEach
@@ -55,6 +57,18 @@ public class TransferRequestMessageSchemaTest extends AbstractSchemaTest {
             }
             """;
 
+    private static final String NO_FORMAT = """
+            {
+              "@context": [
+                "https://w3id.org/dspace/2025/1/context.jsonld"
+              ],
+              "@type": "TransferRequestMessage",
+              "consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
+              "agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
+              "callbackAddress": "https://example.com/callback"
+            }
+            """;
+
     private static final String NO_DA_ENDPOINT = """
             {
               "@context": [
@@ -63,7 +77,6 @@ public class TransferRequestMessageSchemaTest extends AbstractSchemaTest {
               "@type": "TransferRequestMessage",
               "consumerPid": "urn:uuid:32541fe6-c580-409e-85a8-8a9a32fbe833",
               "agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-              "format": "example:HTTP_PUSH",
               "dataAddress": {
                 "@type": "DataAddress",
                 "endpointType": "https://w3id.org/idsa/v4.1/HTTP"
@@ -71,4 +84,6 @@ public class TransferRequestMessageSchemaTest extends AbstractSchemaTest {
               "callbackAddress": "https://example.com/callback"
             }
             """;
+
+
 }

@@ -99,7 +99,8 @@ The Transfer Request Message is sent by a [=Consumer=] to initiate a TP.
 - The `consumerPid` property refers to the transfer id of the [=Consumer=] side.
 - The `agreementId` property refers to an existing contract [=Agreement=] between the [=Consumer=] and [=Provider=].
 - The `dct:format` property is a format specified by a `Distribution` for the [=Dataset=] associated with
-  the [=Agreement=]. This is generally obtained from the [=Provider=]'s [=Catalog=].
+  the [=Agreement=]. This is generally obtained from the [=Provider=]'s [=Catalog=]. It is required only in `PULL`
+  transfers.
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
 - The `dataAddress` contains a transport-specific set of properties for pushing the data. It may include an `endpoint`, 
   a temporary authorization via the `endpointProperties` property - depending on the `endpointType`.
